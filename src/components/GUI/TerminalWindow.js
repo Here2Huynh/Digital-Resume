@@ -1,5 +1,6 @@
 import React from "react";
 import CommandLine from "./CommandLine";
+import TypeWriter from "../effects/TypeWriter";
 
 class TerminalWindow extends React.Component {
   render() {
@@ -11,7 +12,8 @@ class TerminalWindow extends React.Component {
           digital resume!
         </CommandLine>
         <CommandLine dataPrefix={">"} classes={"text-warning"}>
-          Initializing...
+          {/* Initializing... */}
+          <TypeWriter data={["Initializing..."]} deleteMode={false} />
         </CommandLine>
         <CommandLine dataPrefix={">"} classes={"text-success"}>
           Done!

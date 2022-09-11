@@ -1,10 +1,16 @@
 import React from "react";
-import TerminalWindow from "./TerminalWindow";
+import Delayed from "./effects/Delayed";
+import Loader from "./GUI/Loader";
+import TerminalWindow from "./GUI/TerminalWindow";
 
 const App = () => {
   return (
     <div className="m-2">
-      <TerminalWindow />
+      <Loader loadTime={1000} />
+
+      <Delayed wait={1500}>
+        <TerminalWindow />
+      </Delayed>
     </div>
   );
 };
