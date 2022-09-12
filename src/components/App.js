@@ -7,8 +7,7 @@ const App = () => {
   return (
     <div className="m-2">
       <Loader loadTime={1000} />
-
-      <Delayed wait={1500}>
+      <Delayed wait={1200}>
         <TerminalWindow />
       </Delayed>
     </div>

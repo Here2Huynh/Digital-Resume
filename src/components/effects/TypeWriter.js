@@ -1,8 +1,11 @@
 // inspired by
 // https://codesandbox.io/s/react-typewriter-effect-rdis2?file=/components/Typewriter.js
-import React from "react";
+import React, { PureComponent } from "react";
+import { InitializeContext } from "../../contexts/InitializeContext";
 
-class TypeWriter extends React.PureComponent {
+class TypeWriter extends PureComponent {
+  static contextType = InitializeContext;
+
   state = { text: "" };
 
   componentDidMount() {
@@ -28,7 +31,6 @@ class TypeWriter extends React.PureComponent {
     if (this.isDeleting && deleteMode) {
       newText = fullText.substring(0, this.state.text.length - 1);
     } else {
-      console.log(fullText, newText);
       newText = fullText.substring(0, this.state.text.length + 1);
     }
 
@@ -36,13 +38,15 @@ class TypeWriter extends React.PureComponent {
 
     if (this.isDeleting && deleteMode) delta /= 2;
 
-    if (!this.isDeleting && deleteMode && newText === fullText) {
+    if (newText === fullText) {
+      this.context.setDone(true);
+    } else if (!this.isDeleting && newText === fullText) {
       delta = this.period;
       this.isDeleting = true;
     } else if (this.isDeleting && deleteMode && newText === "") {
       this.isDeleting = false;
       this.loopNum++;
-      delta = 500;
+      delta = this.props.delta;
     }
 
     this.setState({ text: newText });
