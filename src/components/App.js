@@ -7,7 +7,7 @@ import TerminalWindow from "./GUI/TerminalWindow";
 
 const App = () => {
   return (
-    <div className="m-2">
+    <div className="m-6">
       <Loader loadTime={1000} />
       <Delayed wait={1200}>
         <TerminalWindow />

@@ -21,9 +21,8 @@ class TerminalWindow extends Component {
     return (
       <div className="mockup-code">
         <CommandLine dataPrefix={"$"} classes={"text-success"}>
-          Hello there, Welcome to
-          <span className="text-info"> John Huynh's </span>
-          digital resume!
+          Hello there, I am <span className="text-info">John Huynh</span>.
+          Welcome to my digital resume!
         </CommandLine>
         <Delayed wait={1000}>
           <CommandLine dataPrefix={">"} classes={"text-warning"}>
