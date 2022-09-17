@@ -1,39 +1,21 @@
 import React, { Component } from "react";
-import CommandLine from "./CommandLine";
-import Delayed from "../effects/Delayed";
-import { InitializeContext } from "../../contexts/InitializeContext";
-import InitSwitcher from "../helpers/InitSwitcher";
-import DoneLine from "../helpers/DoneLine";
+import { welcomeDialogue } from "./Welcome";
 
+// TODO: some sort of queue to store the command lines
+// TODO: add tab auto complete functionality
 class TerminalWindow extends Component {
-  setDone = (done) => {
-    this.setState({ done: done });
-  };
-
   state = {
-    done: false,
-    setDone: this.setDone,
+    history: [],
   };
 
-  // TODO: add guide menu
+  componentDidMount() {
+    this.setState({
+      history: [...this.state.history, ...welcomeDialogue],
+    });
+  }
 
   render() {
-    return (
-      <div className="mockup-code">
-        <CommandLine dataPrefix={"$"} classes={"text-success"}>
-          Hello there, I am <span className="text-info">John Huynh</span>.
-          Welcome to my digital resume!
-        </CommandLine>
-        <Delayed wait={1000}>
-          <CommandLine dataPrefix={">"} classes={"text-warning"}>
-            <InitializeContext.Provider value={this.state}>
-              <InitSwitcher />
-              <DoneLine />
-            </InitializeContext.Provider>
-          </CommandLine>
-        </Delayed>
-      </div>
-    );
+    return <div className="mockup-code">{this.state.history}</div>;
   }
 }
 
