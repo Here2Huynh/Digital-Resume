@@ -11,6 +11,28 @@ const initializing = {
   delta: 500,
 };
 
+export const commandDialogue = {
+  current: (
+    <CommandLine dataPrefix={"$"} classes={"text-warning"}>
+      Front end engineer at{" "}
+      <Link
+        url={"https://sanmanuel-nsn.gov"}
+        linkName={"San Manuel Band of Mission Indians"}
+      />
+    </CommandLine>
+  ),
+  clear: (
+    <CommandLine dataPrefix={"~"}>
+      <CommandInput />
+    </CommandLine>
+  ),
+  error: (
+    <CommandLine dataPrefix={">"} classes={"text-warning"}>
+      <CommandInput />
+    </CommandLine>
+  ),
+};
+
 export const welcomeDialogue = [
   <CommandLine dataPrefix={"$"} classes={"text-success"}>
     Hello there, I am <span className="text-info">John Huynh</span>. Welcome to
@@ -33,19 +55,8 @@ export const welcomeDialogue = [
       Done!
     </CommandLine>
   </Delayed>,
-  <CommandLine dataPrefix={"~"}>
-    <CommandInput />
-  </CommandLine>,
+  // <CommandLine dataPrefix={"~"}>
+  //   <CommandInput />
+  // </CommandLine>,
+  commandDialogue.clear,
 ];
-
-export const commandDialogue = {
-  current: (
-    <CommandLine dataPrefix={"$"} classes={"text-warning"}>
-      Front end engineer at{" "}
-      <Link
-        url={"https://sanmanuel-nsn.gov"}
-        linkName={"San Manuel Band of Mission Indians"}
-      />
-    </CommandLine>
-  ),
-};
