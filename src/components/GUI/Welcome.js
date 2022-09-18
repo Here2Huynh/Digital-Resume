@@ -2,8 +2,9 @@ import React from "react";
 import CommandLine from "./CommandLine";
 import Delayed from "../effects/Delayed";
 import TypeWriter from "../effects/TypeWriter";
-import Guide from "../GUI/Guide";
-import CommandInput from "../GUI/CommandInput";
+import Guide from "./Guide";
+import CommandInput from "./CommandInput";
+import Link from "../helpers/Link";
 
 const initializing = {
   line: ["Initializing..."],
@@ -31,8 +32,20 @@ export const welcomeDialogue = [
     <CommandLine dataPrefix={">"} classes={"text-success"}>
       Done!
     </CommandLine>
-    <CommandLine dataPrefix={"~"}>
-      <CommandInput />
-    </CommandLine>
   </Delayed>,
+  <CommandLine dataPrefix={"~"}>
+    <CommandInput />
+  </CommandLine>,
 ];
+
+export const commandDialogue = {
+  current: (
+    <CommandLine dataPrefix={"$"} classes={"text-warning"}>
+      Front end engineer at{" "}
+      <Link
+        url={"https://sanmanuel-nsn.gov"}
+        linkName={"San Manuel Band of Mission Indians"}
+      />
+    </CommandLine>
+  ),
+};

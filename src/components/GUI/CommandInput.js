@@ -3,9 +3,10 @@ import { CommandContext } from "../../contexts/CommandContext";
 
 const CommandInput = () => {
   const [text, setText] = useState("");
+
   return (
     <CommandContext.Consumer>
-      {({ currentCommand, setCurrentCommand, history, setHistory }) => (
+      {({ currentCommand, setCurrentCommand }) => (
         <input
           autoFocus
           type="text"

@@ -9,7 +9,17 @@ const guideContent = [
   {
     tick: ">",
     command: "contacts",
-    description: "list of my desired points of contact",
+    description: "my desired points of contact",
+  },
+  {
+    tick: ">",
+    command: "git",
+    description: "link to my GitHub",
+  },
+  {
+    tick: ">",
+    command: "linkedIn",
+    description: "link to my LinkedIn",
   },
   {
     tick: ">",
