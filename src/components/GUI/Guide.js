@@ -38,6 +38,11 @@ const guideContent = [
   },
   {
     tick: ">",
+    command: "all",
+    description: "execute all commands above",
+  },
+  {
+    tick: ">",
     command: "help",
     description: "show this guide menu",
   },
@@ -47,9 +52,6 @@ const guideContent = [
     description: "reset terminal",
   },
 ];
-
-// TODO: add way to handle unknown commands
-// TODO: implement a better queue for the current command window, history?
 
 const Guide = () => {
   const renderGuideContext = guideContent.map((content) => (

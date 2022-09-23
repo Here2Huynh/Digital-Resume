@@ -3,8 +3,6 @@ import Delayed from "./effects/Delayed";
 import Loader from "./GUI/Loader";
 import TerminalWindow from "./GUI/TerminalWindow";
 
-// TODO: add responsiveness to whole app
-
 const App = () => {
   return (
     <div className="m-6">

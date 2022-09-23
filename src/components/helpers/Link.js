@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO: implement drawer as minipreview? https://daisyui.com/components/drawer/
+
 const Link = ({ url, linkName }) => {
   return (
     <a
